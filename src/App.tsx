@@ -1,7 +1,11 @@
+import { GreetUser } from './GreetUser'
+import { Counter } from './Counter'
+
 export const App = () => {
 	return (
 		<>
-			<h1>Yo .net20p!</h1>
+			<GreetUser />
+			<Counter />
 		</>
 	)
 }
