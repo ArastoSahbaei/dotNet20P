@@ -1,11 +1,11 @@
-import { GreetUser } from './GreetUser'
-import { Counter } from './Counter'
+import './shared/global/Global.css'
+import { Routes } from './routes/Routes'
+import { Navigation } from './components/navigation/Navigation'
 
 export const App = () => {
 	return (
-		<>
-			<GreetUser />
-			<Counter />
-		</>
+		<Routes>
+			<Navigation />
+		</Routes>
 	)
 }
