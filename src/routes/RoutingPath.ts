@@ -4,6 +4,8 @@ const shopView = '/shop'
 const brandsView = '/brands'
 const accessoriesView = '/accessories'
 const newsView = '/news'
+const profileView = '/profile'
+const settingsView = '/settings'
 
 export default {
 	signInView,
@@ -11,5 +13,7 @@ export default {
 	shopView,
 	brandsView,
 	accessoriesView,
-	newsView
+	newsView,
+	profileView,
+	settingsView
 }

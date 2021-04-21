@@ -1,0 +1,18 @@
+.profileWrapper:hover .profileDropDownWrapper {
+	display: block;
+}
+
+.profileDropDownWrapper {
+	display: none;
+	position: absolute;
+	background-color: #212121cc;
+	padding: 12px 16px;
+	z-index: 10;
+}
+
+.profileDropDownWrapper span {
+	display: inline-block;
+	cursor: pointer;
+	padding: 10px;
+	color: white;
+}
