@@ -1,16 +1,35 @@
 import { useEffect, useState } from 'react'
+import PokemonAPIservice from '../../shared/api/service/PokemonAPIservice'
+import { useHistory } from 'react-router-dom'
+import RoutingPath from '../../routes/RoutingPath'
 
 export const ShopView = () => {
-	const [count, setCount] = useState(0)
+	const [serverData, setServerData] = useState<any>([])
+	const history = useHistory()
 
-	/* 	useEffect(() => {
-			alert('yo .net20p!')
-			return () => { alert('goodbye .net20p!') }
-		}, [count])
-	 */
+	const fetchData = async () => {
+		const { data } = await PokemonAPIservice.getAllCharacter()
+		setServerData(data)
+	}
+
+	useEffect(() => {
+		fetchData()
+	}, [])
+
+	const displayData = () => {
+		return (
+			serverData.results?.map((x: any, i: number) =>
+				<div key={x.name}>
+					<h1 onClick={() => history.push(RoutingPath.newsView, x)}>{i} {x.name}</h1>
+				</div>
+			)
+		)
+	}
+
 	return (
 		<div>
-			<h1 onClick={() => setCount(count + 1)}>{count}</h1>
+			<button onClick={() => console.log(serverData)}>check state</button>
+			{displayData()}
 		</div>
 	)
 }

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import PokemonAPIservice from '../../shared/api/service/PokemonAPIservice'
 import loadingImage from '../../shared/images/pokeloading.gif'
+import { useDebounce } from '../../hooks/useDebounce'
 
 export const BrandsView = () => {
 	const [serverData, setServerData] = useState<any>()
 	const [search, setSearch] = useState<any>()
 	const [loading, setLoading] = useState<boolean>(true)
+	const debounceValue = useDebounce(search, 2000)
 
 	const fetchData = async () => {
 		try {
@@ -35,7 +37,7 @@ export const BrandsView = () => {
 
 	useEffect(() => {
 		fetchData()
-	}, [search])
+	}, [debounceValue])
 
 	return (
 		<div>
